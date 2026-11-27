@@ -1,0 +1,21 @@
+Name,Abbreviation,SMILES,InChIKey
+propylene carbonate,PC,CC1COC(=O)O1,RUOJZAUFBMNUDX-UHFFFAOYSA-N
+diethyl carbonate,DEC,CCOC(=O)OCC,OIFBSDVPJOWBCH-UHFFFAOYSA-N
+lithium tetrafluoroborate,LiBF4,F[B-](F)(F)F.[Li+],UFXJWFBILHTTET-UHFFFAOYSA-N
+lithium hexafluorophosphate,LiPF6,F[P-](F)(F)(F)(F)F.[Li+],AXPLOJNSKRXQPA-UHFFFAOYSA-N
+ethyl methyl carbonate,EMC,CCOC(=O)OC,JBTWLSYIZRCDFO-UHFFFAOYSA-N
+dimethyl carbonate,DMC,COC(=O)OC,IEJIGPNLZYLLBP-UHFFFAOYSA-N
+"1,1,2,2-tetrafluoroethyl 2,2,3,3-tetrafluoropropyl ether",TTE,FC(F)C(F)(F)COC(F)(F)C(F)F,HCBRSIIGBBDDCD-UHFFFAOYSA-N
+"bis(2,2,2-trifluoroethyl) ether",BTFE,FC(F)(F)COCC(F)(F)F,KGPPDNUWZNWPSI-UHFFFAOYSA-N
+lithium bis(fluorosulfonyl)imide,LiFSI,O=S(=O)(F)[N-]S(=O)(=O)F.[Li+],VDVLPSWVDYJFRW-UHFFFAOYSA-N
+tetrahydrofuran,THF,C1CCOC1,WYURNTSHIVDZCO-UHFFFAOYSA-N
+1-methoxy-2-propoxyethane,MPE,COCCOCCC,ILLHRDFIVGEPIU-UHFFFAOYSA-N
+"1,2-diethoxyethane",DEE,CCOCCOCC,LZDKZFUFMNSQCJ-UHFFFAOYSA-N
+"1,2-bis(2,2,2-trifluoroethoxy)ethane",F6DEE,FC(F)(F)COCCOCC(F)(F)F,KURIPTHAZOPONO-UHFFFAOYSA-N
+dimethoxymethane,DMM,COCOC,NKDDWNXOKDWJAK-UHFFFAOYSA-N
+"2,2,3,3-tetrafluoro-1,4-dimethoxybutane",FDMB,COCC(F)(F)C(F)(F)COC,MWFDZQADYQEPQG-UHFFFAOYSA-N
+"1,2-dimethoxyethane",DME,COCCOC,XTHFKEDIFFGKHM-UHFFFAOYSA-N
+lithium bis(trifluoromethanesulfonyl)imide,LiTFSI,O=S(=O)([N-]S(=O)(=O)C(F)(F)F)C(F)(F)F.[Li+],QSZMZKBZAYQGRS-UHFFFAOYSA-N
+tetraethyl orthosilicate,TEOS,CCO[Si](OCC)(OCC)OCC,BOTDANWDWHJENH-UHFFFAOYSA-N
+"2-[2-(2,2-difluoroethoxy)ethoxy]-1,1,1-trifluoroethane",F5DEE,FC(F)COCCOCC(F)(F)F,ZWTPNQIKYGASCO-UHFFFAOYSA-N
+ethylene carbonate,EC,O=C1OCCO1,KMTRUDSVKNLOMY-UHFFFAOYSA-N

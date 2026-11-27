@@ -1,0 +1,13 @@
+ID,Formulation,Family,Source,Literature_T_C,Literature_mS_cm,Measured_mS_cm,Temperature,Solvent_1,Solvent_2,Solvent_3,Solvent_4,Solvent_5,Salt_1
+1,7.836 PC : 1.693 DEC : 1.495 LiBF4,carbonate,ding2004electrolytic,19.5,2.21,2.40,25.0,CC1COC(=O)O1:0.8,CCOC(=O)OCC:0.2,,,,F[B-](F)(F)F.[Li+]:1.495143745
+2,9.795 PC : 1.504 LiBF4,carbonate,ding2004electrolytic,29.4,2.73,1.90,25.0,CC1COC(=O)O1:1,,,,,F[B-](F)(F)F.[Li+]:1.503697502
+3,1.0 M LiBF4 in PC,carbonate,qiao2018promising,25.4,0.15,3.10,25.0,CC1COC(=O)O1:1,,,,,F[B-](F)(F)F.[Li+]:1.0
+4,1 M LiPF6 in PC,carbonate,fan2018nonflammable,25.0,5.40,5.61,25.0,CC1COC(=O)O1:1,,,,,F[P-](F)(F)(F)(F)F.[Li+]:1
+5,1 M LiFSI in EMC:DMC:DEC:TTE:BTFE (7.5:3.75:3.75:42.5:42.5 v/v),carbonate-fluoroether,kim2023highentropy,25.0,1.59,1.58,25.0,CCOC(=O)OC:0.075,COC(=O)OC:0.0375,CCOC(=O)OCC:0.0375,FC(F)C(F)(F)COC(F)(F)C(F)F:0.425,FC(F)(F)COCC(F)(F)F:0.425,O=S(=O)(F)[N-]S(=O)(=O)F.[Li+]:1
+6,0.9 M LiFSI in THF,ether,zhang2024oscillatory,25.0,19.79,12.50,25.0,C1CCOC1:1,,,,,O=S(=O)(F)[N-]S(=O)(=O)F.[Li+]:0.9
+7,1 M LiFSI in MPE,ether,choi2025asymmetric,25.0,6.91,6.72,25.0,COCCOCCC:1,,,,,O=S(=O)(F)[N-]S(=O)(=O)F.[Li+]:1
+8,3 M LiFSI in DEE,ether,chen2024hyperconjugation,25.0,8.11,8.23,25.0,CCOCCOCC:1,,,,,O=S(=O)(F)[N-]S(=O)(=O)F.[Li+]:3
+9,1.2 M LiFSI in F6DEE,ether,yu2022rational,25.0,4.48,4.72,25.0,FC(F)(F)COCCOCC(F)(F)F:1,,,,,O=S(=O)(F)[N-]S(=O)(=O)F.[Li+]:1.2
+10,0.9 M LiFSI in DMM,ether,chen2024hyperconjugation,25.0,2.93,3.01,25.0,COCOC:1,,,,,O=S(=O)(F)[N-]S(=O)(=O)F.[Li+]:0.9
+11,1 M LiFSI in FDMB,ether,yu2020molecular,25.0,3.50,3.61,25.0,COCC(F)(F)C(F)(F)COC:1,,,,,O=S(=O)(F)[N-]S(=O)(=O)F.[Li+]:1
+12,1 M LiTFSI in DME,ether,yu2020molecular,25.0,16.4,16.1,25.0,COCCOC:1,,,,,O=S(=O)([N-]S(=O)(=O)C(F)(F)F)C(F)(F)F.[Li+]:1

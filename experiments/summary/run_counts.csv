@@ -1,0 +1,8 @@
+study,regime,datasets,models,planned,trained,blocked
+"Main benchmark (CALiSol, ILThermo, DES, CheW density, CheW enthalpy)",benchmark,5,8,200,150,50
+"Common subsets (ILThermo-common, DES-common)",common_subset,2,8,80,80,0
+CALiSol component ablations,component,1,6,30,30,0
+CALiSol mechanism ablations,mechanism,1,7,35,35,0
+"CALiSol PerForm, IC target",ic_lic,1,1,5,5,0
+"CALiSol PerForm, strict composition hold-out (LIC)",strict_lmo,1,1,5,5,0
+Total,,7,21,355,305,50

@@ -1,0 +1,15 @@
+study,variant,change,test_r2,test_rmse_log10_mS_cm
+Reference,perform,Full PerForm,0.984 ± 0.002,0.089 ± 0.005
+Component,no_relu,No ReLU in the MOTIF global (distance) attention branch,0.978 ± 0.001,0.104 ± 0.003
+Component,no_attention,Formulation attention between molecules removed,0.945 ± 0.010,0.163 ± 0.016
+Component,no_motif,MOTIF molecular encoder replaced by a token embedding,0.891 ± 0.040,0.227 ± 0.044
+Component,no_molar_ratio,Molar-ratio encoder removed,0.752 ± 0.005,0.348 ± 0.003
+Component,no_temperature,Temperature encoder removed,0.190 ± 0.012,0.628 ± 0.005
+Component,minimal,"MOTIF encoder, pooling and head only (no molar ratio, temperature or formulation attention)",0.138 ± 0.008,0.648 ± 0.003
+Mechanism,additive_distance,Additive distance bias in the MOTIF global branch instead of multiplicative weighting,0.981 ± 0.002,0.096 ± 0.005
+Mechanism,role_assigned,Learned solvent/salt role embedding added before formulation attention,0.980 ± 0.003,0.098 ± 0.007
+Mechanism,vanilla,Plain scaled dot-product MOTIF attention (no adjacency or distance),0.980 ± 0.002,0.099 ± 0.004
+Mechanism,hadamard,Element-wise adjacency masking in the MOTIF local branch,0.973 ± 0.007,0.113 ± 0.015
+Mechanism,deep_sets,Deep Sets aggregator instead of formulation attention,0.972 ± 0.004,0.117 ± 0.009
+Mechanism,temp_concat,"[T, 1/T] concatenated instead of the temperature encoder",0.968 ± 0.006,0.125 ± 0.011
+Mechanism,mr_concat,Raw molar ratio concatenated instead of the molar-ratio encoder,0.966 ± 0.007,0.129 ± 0.013

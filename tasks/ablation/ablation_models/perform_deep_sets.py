@@ -1,0 +1,138 @@
+# This ablation replaces formulation attention and mean pooling with Deep Sets.
+# Molecule features pass through an MLP, masked sum, LayerNorm and output MLP.
+
+import torch
+import torch.nn as nn
+import sys
+import os
+
+
+sys.path.insert(
+    0,
+    os.path.dirname(
+        os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    ),
+)
+
+import importlib
+
+perform_components = importlib.import_module("modules.perform.perform_components")
+MOTIF = perform_components.MOTIF
+MolarRatioEncoder = perform_components.MolarRatioEncoder
+TemperatureEncoder = perform_components.TemperatureEncoder
+
+
+class DeepSetsAggregator(nn.Module):
+    def __init__(self, d_model, dropout=0.1):
+        super(DeepSetsAggregator, self).__init__()
+        self.phi = nn.Sequential(
+            nn.Linear(d_model, d_model),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(d_model, d_model),
+        )
+        self.rho_norm = nn.LayerNorm(d_model)
+        self.rho = nn.Sequential(
+            nn.Linear(d_model, d_model),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(d_model, d_model),
+        )
+
+    def forward(self, x, mask):
+        phi_x = self.phi(x)
+        mask_expanded = mask.unsqueeze(-1).float()
+        pooled = (phi_x * mask_expanded).sum(dim=1)
+        pooled = self.rho_norm(pooled)
+        return self.rho(pooled)
+
+
+class PerFormDeepSets(nn.Module):
+    def __init__(
+        self,
+        d_model,
+        motif_num_layers,
+        motif_num_heads,
+        motif_dropout,
+        main_att_num_heads,
+        main_att_dropout,
+        final_dropout,
+        input_vocab_size,
+        max_num_molecules,
+    ):
+        super(PerFormDeepSets, self).__init__()
+
+        self.max_num_molecules = max_num_molecules
+
+        self.motif = MOTIF(
+            input_vocab_size=input_vocab_size,
+            d_model=d_model,
+            dff=d_model,
+            num_layers=motif_num_layers,
+            num_heads=motif_num_heads,
+            rate=motif_dropout,
+        )
+
+        self.transf_mlp = nn.Sequential(
+            nn.Linear(d_model, d_model),
+            nn.GELU(),
+            nn.Linear(d_model, d_model),
+        )
+        self.transf_norm = nn.LayerNorm(d_model)
+
+        self.molar_ratio_encoder = MolarRatioEncoder(d_model)
+        self.temperature_encoder = TemperatureEncoder(d_model)
+
+        self.deep_sets = DeepSetsAggregator(d_model=d_model, dropout=main_att_dropout)
+
+        self.prediction_head = nn.Sequential(
+            nn.Linear(d_model, d_model // 2),
+            nn.GELU(),
+            nn.Dropout(final_dropout),
+            nn.Linear(d_model // 2, 1),
+        )
+
+    def forward(self, batch):
+        device = next(self.parameters()).device
+        mol_embeddings = []
+        molar_ratios = []
+
+        for i in range(1, self.max_num_molecules + 1):
+            moiety_inputs = batch[f"x{i}"].to(device)
+            moiety_adj_inputs = batch[f"adjoin_matrix{i}"].to(device)
+            moiety_dist_inputs = batch[f"dist_matrix{i}"].to(device)
+            mr = batch[f"mr{i}"].to(device)
+            if mr.dim() > 1:
+                mr = mr.squeeze(-1)
+
+            molar_ratios.append(mr)
+
+            moiety_embeddings, *_ = self.motif(
+                moiety_inputs,
+                adjoin_matrix=moiety_adj_inputs,
+                dist_matrix=moiety_dist_inputs,
+            )
+
+            transformed = self.transf_mlp(moiety_embeddings)
+            mol_embedding = self.transf_norm(transformed + moiety_embeddings)
+            mask = (moiety_inputs != 0).float().unsqueeze(-1)
+            mol_embedding = mol_embedding * mask
+            mol_embedding = torch.sum(mol_embedding, dim=1)
+            mol_embeddings.append(mol_embedding)
+
+        mol_embeddings = torch.stack(mol_embeddings, dim=1)
+        molar_ratios = torch.stack(molar_ratios, dim=1)
+
+        mr_weights = self.molar_ratio_encoder(molar_ratios)
+        scaled_mol_embeddings = mol_embeddings * mr_weights
+
+        molecule_mask = molar_ratios > 0
+
+        pooled_representation = self.deep_sets(scaled_mol_embeddings, molecule_mask)
+
+        temperature = batch["temperature"].to(device)
+        temp_weights = self.temperature_encoder(temperature)
+        pooled_representation = pooled_representation * temp_weights
+
+        prediction = self.prediction_head(pooled_representation)
+        return prediction.squeeze(-1)

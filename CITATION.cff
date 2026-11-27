@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the article below."
+title: "Predicting Multicomponent Mixture Properties with Hierarchical Representation Learning"
+type: software
+license: MIT
+repository-code: "https://github.com/lmondonico/bao-cui-perform"
+keywords:
+  - mixture property prediction
+  - multicomponent mixtures
+  - molecular representation learning
+  - hierarchical attention
+  - formulation design
+authors:
+  - given-names: Luca
+    family-names: Mondonico
+    affiliation: "Department of Materials Science and Engineering, Stanford University"
+  - given-names: Jacob
+    family-names: Florian
+    affiliation: "Department of Chemical Engineering, Stanford University"
+  - given-names: Ryan
+    family-names: Lam
+    affiliation: "Department of Materials Science and Engineering, Stanford University"
+  - given-names: Yi
+    family-names: Cui
+    affiliation: "Department of Materials Science and Engineering, Stanford University; Department of Energy Science and Engineering, Stanford University; Stanford Institute for Materials and Energy Sciences, SLAC National Accelerator Laboratory"
+  - given-names: Zhenan
+    family-names: Bao
+    affiliation: "Department of Chemical Engineering, Stanford University"
+preferred-citation:
+  type: article
+  title: "Predicting Multicomponent Mixture Properties with Hierarchical Representation Learning"
+  year: 2026
+  authors:
+    - given-names: Luca
+      family-names: Mondonico
+    - given-names: Jacob
+      family-names: Florian
+    - given-names: Ryan
+      family-names: Lam
+    - given-names: Yi
+      family-names: Cui
+    - given-names: Zhenan
+      family-names: Bao
+references:
+  - type: data
+    title: "PerForm Results and Trained Models"
+    doi: 10.5281/zenodo.24574337
+    url: "https://doi.org/10.5281/zenodo.24574337"
+    publisher:
+      name: Zenodo
+    year: 2026
+    authors:
+      - given-names: Luca
+        family-names: Mondonico
+      - given-names: Jacob
+        family-names: Florian
+      - given-names: Ryan
+        family-names: Lam
+      - given-names: Yi
+        family-names: Cui
+      - given-names: Zhenan
+        family-names: Bao

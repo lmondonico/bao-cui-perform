@@ -1,0 +1,8 @@
+dataset,role,target,physical_unit,rows,compositions,systems,molecules,salts_per_row,components_per_row,temperature_c,train_rows,validation_rows,test_rows,models_trained,runs
+CALiSol,benchmark; ablations and analyses,log10(mS/cm),mS/cm,10280,4110,137,50,1,2–5,-79.0 to 204.3,7401–7402,1850–1851,1028,8,115
+CheW density,benchmark,g/cm^3,g/cm^3,29633,29633,18914,80,0,1–5,26.9 to 26.9,21335–21336,5333–5334,2964,6,30
+CheW enthalpy,benchmark,kJ/mol,kJ/mol,29633,29633,18914,80,0,1–5,26.9 to 26.9,21335–21336,5333–5334,2964,6,30
+DES,benchmark,log10(mPa s),mPa s,3325,477,241,154,0–1,2,5.0 to 105.0,2393–2394,598–599,333,6,30
+ILThermo,benchmark,ln(Pa s),Pa s,69983,14073,1648,664,0–3,1–3,-74.9 to 288.6,50387–50388,12596–12597,6999,4,20
+DES-common,common subset of DES,log10(mPa s),mPa s,2358,330,148,109,1,2,5.0 to 105.0,1689–1713,415–439,230,8,40
+ILThermo-common,common subset of ILThermo,ln(Pa s),Pa s,44966,9731,947,485,1,2–3,-1.0 to 160.0,32278–32376,8012–8110,4578,8,40

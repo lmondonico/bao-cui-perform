@@ -1,0 +1,22 @@
+name: perform
+channels:
+  - conda-forge
+dependencies:
+  - fvcore
+  - matplotlib
+  - networkx
+  - numpy
+  - nvidia-ml-py
+  - pandas
+  - pip
+  - python=3.12
+  - pytorch
+  - rdkit
+  - regex
+  - scikit-learn
+  - scipy
+  - seaborn
+  - tqdm
+  - xgboost
+  - pip:
+    - torch-geometric==2.7.0

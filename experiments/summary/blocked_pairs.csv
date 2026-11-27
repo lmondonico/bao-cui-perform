@@ -1,0 +1,11 @@
+dataset,model,rows,rows_not_representable,rows_by_reason
+ILThermo,SMI-TED-IC,69983,12705,more than one salt: 12705
+ILThermo,MolSets-SAGE,69983,18423,no neutral component: 11285; no salt: 2573; more than one salt: 12705
+ILThermo,F-GCN,69983,12705,more than one salt: 12705
+ILThermo,GeoMix-TFN,69983,24952,no neutral component: 11285; no salt: 2573; more than one salt: 12705; element outside GeoMix set: 10910
+DES,MolSets-SAGE,3325,605,no salt: 605
+DES,GeoMix-TFN,3325,967,no salt: 605; element outside GeoMix set: 362
+CheW density,MolSets-SAGE,29633,29633,no salt: 29633
+CheW density,GeoMix-TFN,29633,29633,no salt: 29633; element outside GeoMix set: 50
+CheW enthalpy,MolSets-SAGE,29633,29633,no salt: 29633
+CheW enthalpy,GeoMix-TFN,29633,29633,no salt: 29633; element outside GeoMix set: 50

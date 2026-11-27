@@ -1,0 +1,18 @@
+# Environments
+.venv*/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Results and data from Zenodo or rebuilt locally (see README)
+/*.zip
+/perform_results/
+/data/raw/
+/data/splits-*/
+/experiments/results/
+
+# Model weights and serialized vocabulary
+*.pt
+*.pth
+*.index
+*.data-?????-of-?????

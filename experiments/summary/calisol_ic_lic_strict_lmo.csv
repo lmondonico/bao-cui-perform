@@ -1,0 +1,6 @@
+run,scored_in,test_rows,test_r2,test_rmse
+"LIC target, CV",log10(mS/cm),1028,0.984 ± 0.002,0.089 ± 0.005
+"LIC target, CV",mS/cm,1028,0.977 ± 0.004,0.665 ± 0.054
+"IC target, CV",mS/cm,1028,0.980 ± 0.006,0.609 ± 0.092
+"LIC target, strict LMO (test compositions held out)",log10(mS/cm),1059,0.970 ± 0.015,0.130 ± 0.029
+"LIC target, strict LMO (test compositions held out)",mS/cm,1059,0.846 ± 0.051,1.641 ± 0.278
